@@ -63,6 +63,17 @@ export default function Dashboard() {
             </tr>
           </tbody>
         </table>
+        <div className="bg-white rounded-lg shadow p-6 mt-8">
+  <h2 className="text-2xl font-bold mb-4">Expense Summary</h2>
+
+  <ul className="space-y-2">
+    <li>🍔 Food: ₹3,000</li>
+    <li>⛽ Travel: ₹2,000</li>
+    <li>🛍️ Shopping: ₹4,500</li>
+    <li>💡 Bills: ₹1,500</li>
+    <li>🎬 Entertainment: ₹1,500</li>
+  </ul>
+</div>
       </div>
     </main>
   );
