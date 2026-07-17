@@ -21,15 +21,28 @@ export default function Dashboard() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+  const loadExpenses = async () => {
+    try {
+      const res = await fetch("/api/expenses");
 
- useEffect(() => {
-  fetch("/api/expenses")
-    .then((res) => res.json())
-    .then((data) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch expenses");
+      }
+
+      const data = await res.json();
       setExpenses(data);
+    } catch (error) {
+      console.error(error);
+      alert("API Error! Check Vercel logs.");
+    } finally {
       setLoading(false);
-    });
+    }
+  };
+
+  loadExpenses();
 }, []);
+
 
     if (loading) {
   return (
